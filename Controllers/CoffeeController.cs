@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API_Interactive_Lab_1.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API_Interactive_Lab_1.Controllers
 {
@@ -11,5 +12,17 @@ namespace API_Interactive_Lab_1.Controllers
         {
             return "I like coffee!";
         }
+
+        [HttpGet("")]
+        [HttpGet("{name}")]
+        public Coffee GetCoffee(string? name)
+        {
+            return new Coffee(name ?? "latte", (name != null ? name.Length : -1));
+        }
+        //[HttpGet("")]
+        //public string GetCoffeeDefault()
+        //{
+        //    return "Search a Coffee!";
+        //}
     }
 }
